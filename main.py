@@ -78,7 +78,7 @@ def page_home():
     # Convert the alarm times to datetime.time objects
     alarm_times_dt = [datetime.datetime.strptime(t, '%H:%M:%S') for t in alarm_times]
 
-    # Get the current time
+    # Get the current time zone
     et = pytz.timezone('US/Eastern')
     current_time = datetime.datetime.now(tz=et)
 
@@ -118,7 +118,7 @@ def page_home():
                 playsound('schoolBell.mp3')
                 break
             
-            current_time = datetime.datetime.now().strftime("%H:%M:%S")
+            current_time = datetime.datetime.now(tz=et).strftime("%H:%M:%S")
             current_time = datetime.datetime.strptime(current_time, '%H:%M:%S')
 
             if current_time < military_time:
