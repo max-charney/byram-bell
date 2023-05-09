@@ -12,15 +12,39 @@ def main():
         page_title="Byram Bell",
         page_icon="bobcatlogo.png",
         initial_sidebar_state="expanded",
-        menu_items={
-            'About': "Developed by Mr. Lewick and Max Charney"    
-        },
     )
+
+    hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden; position: absolute; top: 0;}
+        </style>
+        """
+
+    st.markdown(hide_menu_style, unsafe_allow_html=True)
+
+
+    hide_footer_style = """
+            <style>
+            footer {visibility: hidden; position: absolute; top: 0;}
+            </style>
+            """
+
+    st.markdown(hide_footer_style, unsafe_allow_html=True)
+
+    st.markdown("""
+            <style>
+                .block-container {
+                        padding-top: 1rem;
+                        padding-bottom: 0rem;
+                    }
+            </style>
+            """, unsafe_allow_html=True)
 
     # Define sidebar pages
     pages = {
         "Home": page_home,
-        "Bell Schedule": page_bell_schedule
+        "Bell Schedule": page_bell_schedule,
+        "Credits": page_credits,
     }
 
     # Sidebar navigation
@@ -117,6 +141,10 @@ def page_bell_schedule():
 
     df.index += 1
     st.table(df)
+
+def page_credits():
+    st.subheader("This website was developed by Mr. Lewick and Max Charney")
+    st.write("Checkout the code in our github repository: https://github.com/max-charney/byram-bell")
 
 if __name__ == "__main__":
     main()
