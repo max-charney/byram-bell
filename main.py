@@ -71,30 +71,21 @@ def page_home():
     next_bell_container = st.empty()
 
 
-    # Alarm times
+    # Alarm times in Eastern Time
     alarm_times = ["07:45:00", "08:10:00", "09:14:00", "09:18:00", "10:22:00", "10:26:00", "11:30:00", "12:13:00", "13:17:00", "13:21:00", "14:25:00"]
 
-    # Sort alarm times
-    # Convert the alarm times to datetime.time objects
-    alarm_times_dt = [datetime.datetime.strptime(t, '%H:%M:%S') for t in alarm_times]
+    # Convert alarm times to datetime objects in Eastern Time
+    eastern = pytz.timezone('US/Eastern')
+    alarm_times_dt = [datetime.datetime.strptime(t, '%H:%M:%S').replace(tzinfo=eastern) for t in alarm_times]
 
-    # Get the current time zone
-    et = pytz.timezone('US/Eastern')
-    current_time = datetime.datetime.now(tz=et)
+    # Get the current time in Eastern Time
+    current_time = datetime.datetime.now(tz=eastern)
 
-    # Define a key function to calculate the time difference between each alarm time and the current time
-    def time_difference(time):
-        time_dt = datetime.datetime.combine(current_time.date(), time.time(), tzinfo=et)
-        if time_dt >= current_time:
-            return (time_dt - current_time).total_seconds()
-        else:
-            return (time_dt - current_time + datetime.timedelta(days=1)).total_seconds()
+    # Calculate time differences from current time for each alarm time
+    time_diffs = [(t - current_time).total_seconds() for t in alarm_times_dt]
 
-    # Sort the alarm times based on the time difference from the current time
-    sorted_alarm_times_dt = sorted(alarm_times_dt, key=time_difference)
-
-    # Convert the sorted alarm times back to the original format
-    alarm_times = [t.strftime('%H:%M:%S') for t in sorted_alarm_times_dt]
+    # Sort the alarm times based on the time differences
+    alarm_times = [t.strftime('%H:%M:%S') for _, t in sorted(zip(time_diffs, alarm_times_dt))]
 
     # Main loop
     # Cycle through the alarm times indefinitely
