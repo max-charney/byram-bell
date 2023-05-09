@@ -84,7 +84,7 @@ def page_home():
 
     # Define a key function to calculate the time difference between each alarm time and the current time
     def time_difference(time):
-        time_dt = datetime.datetime.combine(current_time.date(tz=et), time.time(tz=et))
+        time_dt = datetime.datetime.combine(current_time.astimezone(et).date(), time.time())
         if time_dt >= current_time:
             return (time_dt - current_time).total_seconds()
         else:
