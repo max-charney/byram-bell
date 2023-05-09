@@ -57,7 +57,7 @@ def main():
 
 def page_home():
     # Set up the page
-    st.title("Byram Bell")
+    st.title("TES")
     st.subheader("Our website plays the bell sound at the scheduled times, so don't forget to adjust your volume accordingly!")
     timer_ph = st.empty()
     next_bell_container = st.empty()
