@@ -80,11 +80,11 @@ def page_home():
 
     # Get the current time
     et = pytz.timezone('US/Eastern')
-    current_time = datetime.datetime.now(et)
+    current_time = datetime.datetime.now(tz=et)
 
     # Define a key function to calculate the time difference between each alarm time and the current time
     def time_difference(time):
-        time_dt = datetime.datetime.combine(current_time.date(et), time.time(et))
+        time_dt = datetime.datetime.combine(current_time.date(tz=et), time.time(tz=et))
         if time_dt >= current_time:
             return (time_dt - current_time).total_seconds()
         else:
