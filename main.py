@@ -5,6 +5,11 @@ import itertools
 import datetime
 from datetime import timedelta
 import pandas as pd
+import pytz
+
+timezone = pytz.timezone('US/Eastern') # replace with your desired time zone
+now = datetime.datetime.now(timezone)
+st.write(now.strftime("%H:%M:%S"))
 
 def main():
     # Set up page
@@ -56,7 +61,7 @@ def main():
 
 def page_home():
     # Set up the page
-    st.title("Byram Bell")
+    st.title("TEST")
     st.subheader("Our website plays the bell sound at the scheduled times, so don't forget to adjust your volume accordingly!")
     timer_ph = st.empty()
     next_bell_container = st.empty()
