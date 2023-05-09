@@ -79,15 +79,16 @@ def page_home():
     alarm_times_dt = [datetime.datetime.strptime(t, '%H:%M:%S') for t in alarm_times]
 
     # Get the current time
-    current_time = datetime.datetime.now()
+    et = pytz.timezone('US/Eastern')
+    current_time = datetime.datetime.now(et)
 
     # Define a key function to calculate the time difference between each alarm time and the current time
     def time_difference(time):
-        time_dt = datetime.datetime.combine(eastern_now.date(), time.time())
-        if time_dt >= eastern_now:
-            return (time_dt - eastern_now).total_seconds()
+        time_dt = datetime.datetime.combine(current_time.date(), time.time())
+        if time_dt >= current_time:
+            return (time_dt - current_time).total_seconds()
         else:
-            return (time_dt - eastern_now + datetime.timedelta(days=1)).total_seconds()
+            return (time_dt - current_time + datetime.timedelta(days=1)).total_seconds()
 
     # Sort the alarm times based on the time difference from the current time
     sorted_alarm_times_dt = sorted(alarm_times_dt, key=time_difference)
