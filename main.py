@@ -1,6 +1,3 @@
-import os
-os.environ['TZ'] = 'US/Eastern'
-
 import streamlit as st
 import time
 from playsound import playsound
@@ -59,6 +56,17 @@ def main():
     pages[selection]()
 
 def page_home():
+    # Set the time zone
+    eastern = pytz.timezone('US/Eastern')
+    # Get the current time in UTC timezone
+    utc_now = datetime.datetime.utcnow()
+
+    # Convert the current time to Eastern timezone
+    eastern_now = utc_now.replace(tzinfo=pytz.utc).astimezone(eastern)
+
+    # Display the current time in Eastern timezone
+    st.write("Current time in Eastern timezone is: ", eastern_now.time())
+    
     # Set up the page
     st.title("Byram Bell")
     st.subheader("Our website plays the bell sound at the scheduled times, so don't forget to adjust your volume accordingly!")
