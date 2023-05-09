@@ -7,10 +7,6 @@ from datetime import timedelta
 import pandas as pd
 import pytz
 
-timezone = pytz.timezone('US/Eastern') # replace with your desired time zone
-now = datetime.datetime.now(timezone)
-st.write(now.strftime("%H:%M:%S"))
-
 def main():
     # Set up page
     st.set_page_config(
