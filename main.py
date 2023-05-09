@@ -72,7 +72,7 @@ def page_home():
 
 
     # Alarm times in Eastern Time
-    alarm_times = ["07:45:00", "08:10:00", "09:14:00", "09:18:00", "10:22:00", "10:26:00", "11:30:00", "12:13:00", "13:17:00", "13:21:00", "14:25:00"]
+    alarm_times = ["15:08:00", "08:10:00", "09:14:00", "09:18:00", "10:22:00", "10:26:00", "11:30:00", "12:13:00", "13:17:00", "13:21:00", "14:25:00"]
 
     # Convert alarm times to datetime objects in Eastern Time
     eastern = pytz.timezone('US/Eastern')
