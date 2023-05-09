@@ -14,8 +14,6 @@ def main():
         initial_sidebar_state="expanded",
     )
 
-    st.write(st.config.get_option("server.enableCORS"))
-
     hide_menu_style = """
         <style>
         #MainMenu {visibility: hidden; position: absolute; top: 0;}
