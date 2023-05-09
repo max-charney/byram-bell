@@ -63,9 +63,6 @@ def page_home():
 
     # Convert the current time to Eastern timezone
     eastern_now = utc_now.replace(tzinfo=pytz.utc).astimezone(eastern)
-
-    # Display the current time in Eastern timezone
-    st.write("Current time in Eastern timezone is: ", eastern_now.time())
     
     # Set up the page
     st.title("Byram Bell")
@@ -86,11 +83,11 @@ def page_home():
 
     # Define a key function to calculate the time difference between each alarm time and the current time
     def time_difference(time):
-        time_dt = datetime.datetime.combine(current_time.date(), time.time())
-        if time_dt >= current_time:
-            return (time_dt - current_time).total_seconds()
+        time_dt = datetime.datetime.combine(eastern_now.date(), time.time())
+        if time_dt >= eastern_now:
+            return (time_dt - eastern_now).total_seconds()
         else:
-            return (time_dt - current_time + datetime.timedelta(days=1)).total_seconds()
+            return (time_dt - eastern_now + datetime.timedelta(days=1)).total_seconds()
 
     # Sort the alarm times based on the time difference from the current time
     sorted_alarm_times_dt = sorted(alarm_times_dt, key=time_difference)
@@ -107,9 +104,12 @@ def page_home():
         next_bell_container.text("Next bell at: "+ regular_time)
 
         # Loop until the alarm time is reached
-        while True:        
-            # Get the current time
-            current_time = datetime.datetime.now().strftime("%H:%M:%S")
+        while True:       
+            # Set the timezone to Eastern Time
+            et = pytz.timezone('US/Eastern')
+
+            # Get the current time in Eastern Time
+            current_time = datetime.datetime.now(et).strftime("%H:%M:%S")
 
             # Check if the current time matches the alarm time
             if current_time == alarm_time:
