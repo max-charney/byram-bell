@@ -1,3 +1,6 @@
+import os
+os.environ['TZ'] = 'US/Eastern'
+
 import streamlit as st
 import time
 from playsound import playsound
