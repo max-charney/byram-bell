@@ -57,7 +57,10 @@ def main():
 
 def page_home():
     # Set up the page
-    st.title("TES")
+    st.title("Byram Bell")
+    now = datetime.datetime.now()
+    st.write("Current date and time:", now)
+    st.write("Timezone offset from UTC:", now.utcoffset())
     st.subheader("Our website plays the bell sound at the scheduled times, so don't forget to adjust your volume accordingly!")
     timer_ph = st.empty()
     next_bell_container = st.empty()
