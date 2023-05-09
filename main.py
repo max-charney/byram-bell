@@ -66,7 +66,7 @@ def page_home():
     
     # Set up the page
     st.title("Byram Bell")
-    st.subheader("Our website plays the bell sound at the scheduled times, so don't forget to adjust your volume accordingly!")
+    st.subheader("This website plays the bell sound at the scheduled times, so don't forget to adjust your volume accordingly!")
     timer_ph = st.empty()
     next_bell_container = st.empty()
 
@@ -157,7 +157,7 @@ def page_bell_schedule():
 
 def page_credits():
     st.subheader("This website was developed by Mr. Lewick and Max Charney")
-    st.write("Checkout the code in our github repository: https://github.com/max-charney/byram-bell")
+    st.write("Check out the code in our github repository: https://github.com/max-charney/byram-bell")
 
 if __name__ == "__main__":
     main()
