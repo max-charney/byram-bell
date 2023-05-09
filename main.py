@@ -110,7 +110,7 @@ def page_home():
             et = pytz.timezone('US/Eastern')
 
             # Get the current time in Eastern Time
-            current_time = datetime.datetime.now(et).strftime("%H:%M:%S")
+            current_time = datetime.datetime.now(tz=et).strftime("%H:%M:%S")
 
             # Check if the current time matches the alarm time
             if current_time == alarm_time:
