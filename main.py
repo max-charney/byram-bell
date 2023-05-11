@@ -80,7 +80,7 @@ def page_home():
     # Set the timezone to Eastern Standard Time
     eastern = pytz.timezone('US/Eastern')
 
-    alarm_times = ["23:33:00", "08:10:00", "09:14:00", "09:18:00", "10:22:00", "10:26:00", "11:30:00", "12:13:00", "13:17:00", "13:21:00", "14:25:00"]
+    alarm_times = ["23:35:00", "08:10:00", "09:14:00", "09:18:00", "10:22:00", "10:26:00", "11:30:00", "12:13:00", "13:17:00", "13:21:00", "14:25:00"]
 
     # Get the current time in Eastern Standard Time
     current_time = datetime.datetime.now(eastern).strftime('%H:%M:%S')
@@ -117,6 +117,7 @@ def page_home():
             if current_time == alarm_time:
                 timer_ph.metric("Time Until Next Bell", "0:00:00")
                 autoplay_audio("schoolBell.mp3")
+                time.sleep(2)
                 break
             
             current_time = datetime.datetime.now(tz=et).strftime("%H:%M:%S")
