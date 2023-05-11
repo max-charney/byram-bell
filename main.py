@@ -73,7 +73,7 @@ def page_home():
     alarm_times = ["22:12:00", "08:10:00", "09:14:00", "09:18:00", "10:22:00", "10:26:00", "11:30:00", "12:13:00", "13:17:00", "13:21:00", "14:25:00"]
 
     # Get the current time in Eastern Standard Time
-    current_time = datetime.datetime.now(eastern).strftime('%H:%M')
+    current_time = datetime.datetime.now(eastern).strftime('%H:%M:%S')
 
     # Convert the times to datetime objects in Eastern Standard Time
     time_objects = [eastern.localize(datetime.datetime.strptime(time, '%H:%M:%S')) for time in alarm_times]
