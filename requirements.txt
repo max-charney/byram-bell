@@ -1,5 +1,2 @@
 playsound==1.2.2
 pandas==1.5.3
-vext==0.7
-vext.gi==0.7
-PyGObject==3.44.0
