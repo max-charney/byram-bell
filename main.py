@@ -88,6 +88,11 @@ def page_home():
     # Calculate the time difference between each time and the current time
     time_deltas = [(time - eastern.localize(datetime.datetime.strptime(current_time, '%H:%M'))) % datetime.timedelta(days=1) for time in time_objects]
 
+    # convert each alarm time to 'HH:MM:SS' format
+    for i in range(len(alarm_times)):
+        alarm_time = datetime.datetime.strptime(alarm_times[i], '%H:%M')
+        alarm_times[i] = alarm_time.strftime('%H:%M:%S')
+    
     # Sort the times based on their time delta from the current time
     alarm_times = [time for _, time in sorted(zip(time_deltas, alarm_times))]
 
