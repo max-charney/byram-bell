@@ -6,6 +6,7 @@ from datetime import timedelta
 import pandas as pd
 import pytz
 from playsound import playsound
+import gi
 
 
 def main():
