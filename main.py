@@ -102,7 +102,7 @@ def page_home():
             # Check if the current time matches the alarm time
             if current_time == alarm_time:
                 timer_ph.metric("Time Until Next Bell", "0:00:00")
-                playsound('schoolBell.mp3')
+                st.audio("schoolBell.mp3", format='audio/mp3', autoplay=True, controls=False)                
                 break
             
             current_time = datetime.datetime.now(tz=et).strftime("%H:%M:%S")
