@@ -74,18 +74,22 @@ def page_home():
     # Alarm times in Eastern Time
     alarm_times = ["15:08:00", "08:10:00", "09:14:00", "09:18:00", "10:22:00", "10:26:00", "11:30:00", "12:13:00", "13:17:00", "13:21:00", "14:25:00"]
 
-    # Convert alarm times to datetime objects in Eastern Time
+    # Set the timezone to Eastern Standard Time
     eastern = pytz.timezone('US/Eastern')
-    alarm_times_dt = [datetime.datetime.strptime(t, '%H:%M:%S').replace(tzinfo=eastern) for t in alarm_times]
 
-    # Get the current time in Eastern Time
-    current_time = datetime.datetime.now(tz=eastern)
+    alarm_times = ["22:15", "08:10", "09:14", "09:18", "10:22", "10:26", "11:30", "12:13", "13:17", "13:21", "14:25"]
 
-    # Calculate time differences from current time for each alarm time
-    time_diffs = [(t - current_time).total_seconds() for t in alarm_times_dt]
+    # Get the current time in Eastern Standard Time
+    current_time = datetime.datetime.now(eastern).strftime('%H:%M')
 
-    # Sort the alarm times based on the time differences
-    alarm_times = [t.strftime('%H:%M:%S') for _, t in sorted(zip(time_diffs, alarm_times_dt))]
+    # Convert the times to datetime objects in Eastern Standard Time
+    time_objects = [eastern.localize(datetime.datetime.strptime(time, '%H:%M')) for time in alarm_times]
+
+    # Calculate the time difference between each time and the current time
+    time_deltas = [(time - eastern.localize(datetime.datetime.strptime(current_time, '%H:%M'))) % datetime.timedelta(days=1) for time in time_objects]
+
+    # Sort the times based on their time delta from the current time
+    alarm_times = [time for _, time in sorted(zip(time_deltas, alarm_times))]
 
     # Main loop
     # Cycle through the alarm times indefinitely
