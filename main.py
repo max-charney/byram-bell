@@ -72,12 +72,10 @@ def page_home():
 
 
     # Alarm times in Eastern Time
-    alarm_times = ["15:08:00", "08:10:00", "09:14:00", "09:18:00", "10:22:00", "10:26:00", "11:30:00", "12:13:00", "13:17:00", "13:21:00", "14:25:00"]
+    alarm_times = ["21:11:00", "08:10:00", "09:14:00", "09:18:00", "10:22:00", "10:26:00", "11:30:00", "12:13:00", "13:17:00", "13:21:00", "14:25:00"]
 
     # Set the timezone to Eastern Standard Time
     eastern = pytz.timezone('US/Eastern')
-
-    alarm_times = ["22:15", "08:10", "09:14", "09:18", "10:22", "10:26", "11:30", "12:13", "13:17", "13:21", "14:25"]
 
     # Get the current time in Eastern Standard Time
     current_time = datetime.datetime.now(eastern).strftime('%H:%M')
