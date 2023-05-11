@@ -101,7 +101,8 @@ def page_home():
             # Check if the current time matches the alarm time
             if current_time == alarm_time:
                 timer_ph.metric("Time Until Next Bell", "0:00:00")
-                player = vlc.MediaPlayer('schoolBell.mp3')
+                vlcInstance = vlc.Instance('--no-xlib')
+                player = vlc.MediaPlayer('schoolBell.mp3', instance=vlcInstance)
                 player.play()
                 break
             
