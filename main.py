@@ -55,15 +55,7 @@ def main():
     # Display the selected page
     pages[selection]()
 
-def page_home():
-    # Set the time zone
-    eastern = pytz.timezone('US/Eastern')
-    # Get the current time in UTC timezone
-    utc_now = datetime.datetime.utcnow()
-
-    # Convert the current time to Eastern timezone
-    eastern_now = utc_now.replace(tzinfo=pytz.utc).astimezone(eastern)
-    
+def page_home():  
     # Set up the page
     st.title("Byram Bell")
     st.subheader("This website plays the bell sound at the scheduled times, so don't forget to adjust your volume accordingly!")
