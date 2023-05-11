@@ -69,20 +69,21 @@ def page_home():
     # Set the timezone to Eastern Standard Time
     eastern = pytz.timezone('US/Eastern')
 
+    # Alarm times in Eastern Time
+    alarm_times = ["22:12:00", "08:10:00", "09:14:00", "09:18:00", "10:22:00", "10:26:00", "11:30:00", "12:13:00", "13:17:00", "13:21:00", "14:25:00"]
+
     # Get the current time in Eastern Standard Time
     current_time = datetime.datetime.now(eastern).strftime('%H:%M')
 
     # Convert the times to datetime objects in Eastern Standard Time
-    time_objects = [eastern.localize(datetime.datetime.strptime(time, '%H:%M')) for time in alarm_times]
+    time_objects = [eastern.localize(datetime.datetime.strptime(time, '%H:%M:%S')) for time in alarm_times]
 
     # Calculate the time difference between each time and the current time
     time_deltas = [(time - eastern.localize(datetime.datetime.strptime(current_time, '%H:%M'))) % datetime.timedelta(days=1) for time in time_objects]
 
-    # convert each alarm time to 'HH:MM:SS' format
-    for i in range(len(alarm_times)):
-        alarm_time = datetime.datetime.strptime(alarm_times[i], '%H:%M')
-        alarm_times[i] = alarm_time.strftime('%H:%M:%S')
-    
+    # Convert each alarm time back to 'HH:MM' format
+    alarm_times = [time.strftime('%H:%M') for time in time_objects]
+
     # Sort the times based on their time delta from the current time
     alarm_times = [time for _, time in sorted(zip(time_deltas, alarm_times))]
 
