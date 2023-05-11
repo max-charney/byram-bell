@@ -5,8 +5,8 @@ import datetime
 from datetime import timedelta
 import pandas as pd
 import pytz
-from pydub import AudioSegment
-from pydub.playback import play
+from playsound import playsound
+
 
 def main():
     # Set up page
@@ -102,8 +102,7 @@ def page_home():
             # Check if the current time matches the alarm time
             if current_time == alarm_time:
                 timer_ph.metric("Time Until Next Bell", "0:00:00")
-                audio = AudioSegment.from_file("schoolBell.mp3", format="mp3")
-                play(audio)
+                playsound('schoolBell.mp3')
                 break
             
             current_time = datetime.datetime.now(tz=et).strftime("%H:%M:%S")
