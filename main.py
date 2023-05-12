@@ -167,14 +167,11 @@ def page_extras():
     st.write("")
 
     if st.button("Bell"):
-        ipd.display(ipd.Audio("schoolBell.mp3", autoplay=True))
-
-
-
-
-
-
-
-    
+        audio_html = f"""
+            <audio autoplay="true">
+                <source src="data:audio/mp3;base64,{get_base64_of_audio('schoolBell.mp3')}" type="audio/mp3">
+            </audio>
+        """
+        components.html(audio_html, height=0)
 if __name__ == "__main__":
     main()
