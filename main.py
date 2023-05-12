@@ -165,7 +165,7 @@ def page_extras():
     st.write("")
     st.write("-------------------------------------")
     st.write("")
-    st.experimental_set_query_params(msg="")
+    st.experimental_set_query_params()
     i = 0
     while True:
         i+=1
