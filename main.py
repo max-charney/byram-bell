@@ -167,7 +167,7 @@ def page_extras():
     st.write("")
     
     def create_button():
-        return st.button("Bell")
+        return st.button("Bell", key="bell_button")
     
     while True:
         button_clicked = create_button()
