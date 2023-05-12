@@ -168,6 +168,7 @@ def page_extras():
 
     if st.button("Bell"):
         autoplay_audio("schoolBell.mp3")
+        print("Playing")
 
 
 
