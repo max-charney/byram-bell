@@ -173,7 +173,7 @@ def page_extras():
         i+=1
         st.write(i)
         autoplay_audio("schoolBell.mp3")
-        st.empty()
+        bell.empty()
 
         
 if __name__ == "__main__":
