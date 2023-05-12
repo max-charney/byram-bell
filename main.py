@@ -182,6 +182,7 @@ def page_extras():
                     md,
                     unsafe_allow_html=True,
                 )
+                st.empty()
         
 if __name__ == "__main__":
     main()
