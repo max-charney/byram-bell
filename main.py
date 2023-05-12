@@ -165,19 +165,11 @@ def page_extras():
     st.write("")
     st.write("-------------------------------------")
     st.write("")
-    
-    def play():
-        st.audio("schoolBell.mp3", format='audio/mp3')
 
-    def create_button():
-        st.sidebar.button("Bell", key="bell_button")
+    if st.button("Bell"):
+        autoplay_audio("schoolBell.mp3")
 
 
-    create_button()
-
-    if st.session_state.bell_button:
-        play()
-        st.session_state.bell_button = False
 
 
 
