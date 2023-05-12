@@ -165,9 +165,11 @@ def page_extras():
     st.write("")
     st.write("-------------------------------------")
     st.write("")
-    
+    st.experimental_set_query_params(msg="")
+    i = 0
     while True:
-        if st.button("Bell"):
+        i+=1
+        if st.button("Bell", key=i):
             with open("schoolBell.mp3", "rb") as f:
                 data = f.read()
                 b64 = base64.b64encode(data).decode()
