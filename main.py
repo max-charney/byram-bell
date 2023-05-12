@@ -165,31 +165,7 @@ def page_extras():
     st.write("")
     st.write("-------------------------------------")
     st.write("")
-    
-    i = 0
-    check = False
-    def play():
-        i += 1
-        button= st.button("Bell", key=i)
-        if button:
-            with open("schoolBell.mp3", "rb") as f:
-                data = f.read()
-                b64 = base64.b64encode(data).decode()
-                md = f"""
-                    <audio autoplay="true">
-                    <source src="data:audio/mp3;base64,{b64}" type="audio/mp3">
-                    </audio>
-                    """
-                st.markdown(
-                    md,
-                    unsafe_allow_html=True,
-                )
-            st.empty()
-            check = False
-                    
-    while True:
-        if not check:
-            play()
+
 
         
 if __name__ == "__main__":
