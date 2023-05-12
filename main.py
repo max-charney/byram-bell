@@ -165,13 +165,16 @@ def page_extras():
     st.write("")
     st.write("-------------------------------------")
     st.write("")
+    
+    def create_button():
+        return st.button("Bell")
+    
     while True:
-        if not bell_button:
-            st.write("Find the best volume:")
-            bell_button = st.button('Play Bell')
-            if bell_button:
-                autoplay_audio("schoolBell.mp3")
-                bell_button = False
+        button_clicked = create_button()
+        if button_clicked:
+            autoplay_audio("schoolBell.mp3")
+            st.empty()  # Delete the button
+            create_button()  # Create a new button
 
 
     
