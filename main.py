@@ -172,12 +172,12 @@ def page_extras():
     def create_button():
         st.sidebar.button("Bell", key="bell_button")
 
-    def main():
-        create_button()
 
-        if st.session_state.bell_button:
-            play()
-            st.session_state.bell_button = False
+    create_button()
+
+    if st.session_state.bell_button:
+        play()
+        st.session_state.bell_button = False
 
 
 
