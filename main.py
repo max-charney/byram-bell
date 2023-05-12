@@ -60,7 +60,7 @@ def main():
     pages = {
         "Home": page_home,
         "Bell Schedule": page_bell_schedule,
-        "Credits": page_credits,
+        "Extra": page_extras,
     }
 
     # Sidebar navigation
@@ -104,15 +104,6 @@ def page_home():
         military_time = datetime.datetime.strptime(alarm_time, '%H:%M:%S')
         regular_time = military_time.strftime('%I:%M %p')
         next_bell_container.text("Next bell at: "+ regular_time)
-        
-        #create volume testing button
-        st.write("")
-        st.write("")
-        st.write("")
-        st.write("Find the best volume:")
-        bell = st.button("Bell")
-        if bell:
-            autoplay_audio("schoolBell.mp3")  
         
         # Loop until the alarm time is reached
         while True:       
@@ -168,9 +159,19 @@ def page_bell_schedule():
     df.index += 1
     st.table(df)
 
-def page_credits():
+def page_extras():
     st.subheader("This website was developed by Mr. Lewick and Max Charney")
     st.write("Check out the code in our github repository: https://github.com/max-charney/byram-bell")
+    st.write("")
+    st.write("")
+    st.write("")
+    st.write("")
+    st.write("")
+    st.write("Find the best volume:")
+    if st.button('Play Bell'):
+        autoplay_audio("schoolBell.mp3")
 
+
+    
 if __name__ == "__main__":
     main()
