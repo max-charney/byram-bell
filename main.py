@@ -170,6 +170,7 @@ def page_extras():
     bell = st.button("Bell")
     if bell:
         autoplay_audio("schoolBell.mp3")
+        bell = False
 
 
         
