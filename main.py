@@ -6,6 +6,8 @@ from datetime import timedelta
 import pandas as pd
 import pytz
 import base64
+from streamlit.hashing import _CodeHasher
+
 
 def autoplay_audio(file_path: str):
     with open(file_path, "rb") as f:
@@ -173,8 +175,37 @@ def page_extras():
             autoplay_audio("schoolBell.mp3")
             time.sleep(3)
 def test():
-    if st.button("Bell"):
+    class SessionState(object):
+        def __init__(self, **kwargs):
+            # Initialize session state with a dictionary of initial key-value pairs
+            self.__dict__.update(kwargs)
+
+        def reset(self):
+            # Reset the session state
+            self.__dict__.clear()
+
+    def get_state():
+        # Create a unique key based on the file path and the current Streamlit app version
+        return SessionState(hash=hash(_CodeHasher.get_code().__code__.co_code), reset=False)
+
+    state = get_state()
+
+    if state.reset:
+        # Reset the session state if the reset flag is True
+        state.reset()
+
+    # Define a function that is run when the button is clicked
+    def my_function():
+        st.write("Function is running...")
+        time.sleep(3)
+        st.write("Function is complete.")
+
+    # Create a button that runs the function and sets the reset flag to True
+    if st.button("Run Function"):
         autoplay_audio("schoolBell.mp3")
+        my_function()
+        state.reset = True
+
 
         
 if __name__ == "__main__":
