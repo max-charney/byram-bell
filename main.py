@@ -166,12 +166,10 @@ def page_extras():
     st.write("-------------------------------------")
     st.write("")
     
-    bell_button = st.button("Bell")
-    
-    if not bell_button:
-        st.stop()
-    else:
+    st.write("Find your optimal volume:")
+    if st.button("Bell")
         autoplay_audio("schoolBell.mp3")
+
 
 
         
