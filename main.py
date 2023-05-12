@@ -167,11 +167,18 @@ def page_extras():
     st.write("")
 
     if st.button("Bell"):
-        audio_html = f"""
+        with open("schoolBell.mp3", "rb") as f:
+        data = f.read()
+        b64 = base64.b64encode(data).decode()
+        md = f"""
             <audio autoplay="true">
-                <source src="data:audio/mp3;base64,{get_base64_of_audio('schoolBell.mp3')}" type="audio/mp3">
+            <source src="data:audio/mp3;base64,{b64}" type="audio/mp3">
             </audio>
-        """
-        components.html(audio_html, height=0)
+            """
+        st.markdown(
+            md,
+            unsafe_allow_html=True,
+        )
+        
 if __name__ == "__main__":
     main()
