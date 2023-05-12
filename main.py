@@ -104,6 +104,13 @@ def page_home():
         military_time = datetime.datetime.strptime(alarm_time, '%H:%M:%S')
         regular_time = military_time.strftime('%I:%M %p')
         next_bell_container.text("Next bell at: "+ regular_time)
+        st.write()
+        st.write()
+        st.write()
+        # Create the button
+        st.write("Find the best volume:")
+        if st.button("Bell"):
+            autoplay_audio("schoolBell.mp3")
 
         # Loop until the alarm time is reached
         while True:       
