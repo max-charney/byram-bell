@@ -62,7 +62,6 @@ def main():
         "Home": page_home,
         "Bell Schedule": page_bell_schedule,
         "Extra": page_extras,
-        "Test": test,
     }
 
     # Sidebar navigation
