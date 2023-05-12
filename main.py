@@ -61,6 +61,7 @@ def main():
         "Home": page_home,
         "Bell Schedule": page_bell_schedule,
         "Extra": page_extras,
+        "Test": test,
     }
 
     # Sidebar navigation
@@ -171,6 +172,10 @@ def page_extras():
         if bell:
             autoplay_audio("schoolBell.mp3")
             time.sleep(3)
+def test():
+    if st.button("Bell"):
+        autoplay_audio("schoolBell.mp3")
+
         
 if __name__ == "__main__":
     main()
