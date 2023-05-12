@@ -167,8 +167,8 @@ def page_extras():
     st.write("")
 
     if st.button("Bell"):
-        autoplay_audio("schoolBell.mp3")
-        st.experimental_set_query_params(message="Hello from Streamlit!")
+        ipd.display(ipd.Audio("schoolBell.mp3", autoplay=True))
+
 
 
 
