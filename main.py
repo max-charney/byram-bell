@@ -162,9 +162,8 @@ def page_bell_schedule():
 def page_extras():
     st.subheader("This website was developed by Mr. Lewick and Max Charney")
     st.write("Check out the code in our github repository: https://github.com/max-charney/byram-bell")
-    st.write("")
+
     st.write("-------------------------------------")
-    st.write("")
     
     st.write("Find your optimal volume:")
     if st.button("Bell"):
