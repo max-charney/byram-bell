@@ -168,7 +168,8 @@ def page_extras():
 
     if st.button("Bell"):
         autoplay_audio("schoolBell.mp3")
-        print("Playing")
+        st.experimental_set_query_params(message="Hello from Streamlit!")
+
 
 
 
