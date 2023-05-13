@@ -29,6 +29,8 @@ def main():
         page_icon="bobcatlogo.png",
         initial_sidebar_state="expanded",
     )
+    bell_button_ph = st.empty()
+    reset_button_ph = st.empty()
 
     hide_menu_style = """
         <style>
@@ -167,7 +169,6 @@ def page_extras():
 
     st.subheader("Find your optimal volume:")
     bell_button_ph = st.empty()
-    reset_button_ph = st.empty()
     bell = bell_button_ph.button('Bell')
     if bell:
         reset=reset_button_ph.button("Reset Bell (Click before testing volume again)")
