@@ -29,11 +29,6 @@ def main():
         page_icon="bobcatlogo.png",
         initial_sidebar_state="expanded",
     )
-    if bell_button_ph.is_empty():
-        pass
-    else:   
-        bell_button_ph.clear()
-        reset_button_ph.clear()
 
     hide_menu_style = """
         <style>
