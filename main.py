@@ -184,4 +184,4 @@ def page_bell_schedule():
 
         
 if __name__ == "__main__":
-    main()
+    main(reset_button_ph, bell_button_ph)
