@@ -171,7 +171,7 @@ def page_extras():
         st.session_state.extra = False
     
    #check if we are on the Extra page
-    if st.session_state.extra == True:
+    if st.session_state.extra == False:
         bell_button_ph = st.empty()
         reset_button_ph = st.empty()
 
