@@ -161,7 +161,7 @@ def page_bell_schedule():
     df.index += 1
     st.table(df)
 
-def page_extras():
+def page_extras(bell_button_ph, reset_button_ph):
     st.subheader("This website was developed by Mr. Lewick and Max Charney")
     st.write("Check out the code in our github repository: https://github.com/max-charney/byram-bell")
 
