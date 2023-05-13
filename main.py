@@ -30,7 +30,7 @@ def main():
         initial_sidebar_state="expanded",
     )
     if bell_button_ph.is_empty():
-        break
+        pass
     else:   
         bell_button_ph.clear()
         reset_button_ph.clear()
