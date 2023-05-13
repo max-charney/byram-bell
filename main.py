@@ -22,32 +22,15 @@ def autoplay_audio(file_path: str):
             unsafe_allow_html=True,
         )
 
-def page_extras():
-    st.subheader("This website was developed by Mr. Lewick and Max Charney")
-    st.write("Check out the code in our github repository: https://github.com/max-charney/byram-bell")
 
-    st.write("-------------------------------------")
-    
-    st.subheader("Find your optimal volume:")
-    bell_button_ph = st.empty()
-    reset_button_ph = st.empty()
-    bell = bell_button_ph.button('Bell')
-    if bell:
-        reset=reset_button_ph.button("Reset Bell (Click before testing volume again)")
-        autoplay_audio("schoolBell.mp3")
         
-def main(reset_button_ph, bell_button_ph):
+def main():
     # Set up page
     st.set_page_config(
         page_title="Byram Bell",
         page_icon="bobcatlogo.png",
         initial_sidebar_state="expanded",
     )
-    
-    #reset buttons from other pages
-    bell_button_ph.empty()
-    reset_button_ph.empty()
-    
 
     hide_menu_style = """
         <style>
@@ -178,10 +161,23 @@ def page_bell_schedule():
     df.index += 1
     st.table(df)
 
+    def page_extras():
+        st.subheader("This website was developed by Mr. Lewick and Max Charney")
+        st.write("Check out the code in our github repository: https://github.com/max-charney/byram-bell")
+
+        st.write("-------------------------------------")
+
+        st.subheader("Find your optimal volume:")
+        bell_button_ph = st.empty()
+        reset_button_ph = st.empty()
+        bell = bell_button_ph.button('Bell')
+        if bell:
+            reset=reset_button_ph.button("Reset Bell (Click before testing volume again)")
+            autoplay_audio("schoolBell.mp3")
 
             
         
 
         
 if __name__ == "__main__":
-    main(reset_button_ph, bell_button_ph)
+    main()
