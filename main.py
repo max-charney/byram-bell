@@ -29,8 +29,6 @@ def main():
         page_icon="bobcatlogo.png",
         initial_sidebar_state="expanded",
     )
-    bell_button_ph = st.empty()
-    reset_button_ph = st.empty()
 
     hide_menu_style = """
         <style>
@@ -70,7 +68,7 @@ def main():
     selection = st.sidebar.radio("Go to", list(pages.keys()))
 
     # Display the selected page
-    pages[selection](bell_button_ph, reset_button_ph)
+    pages[selection]()
 
 def page_home():  
     # Set up the page
@@ -169,6 +167,7 @@ def page_extras(bell_button_ph, reset_button_ph):
 
     st.subheader("Find your optimal volume:")
     bell_button_ph = st.empty()
+    reset_button_ph = st.empty()
     bell = bell_button_ph.button('Bell')
     if bell:
         reset=reset_button_ph.button("Reset Bell (Click before testing volume again)")
