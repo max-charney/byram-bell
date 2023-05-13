@@ -7,10 +7,6 @@ import pandas as pd
 import pytz
 import base64
 
-if "page_state" not in st.session_state:
-    st.session_state["page_state"] = {}
-st.session_state.page_state["extra"] = False
-
 def autoplay_audio(file_path: str):
     with open(file_path, "rb") as f:
         data = f.read()
@@ -75,9 +71,7 @@ def main():
     # Sidebar navigation
     st.sidebar.title("Navigation")
     selection = st.sidebar.radio("Go to", list(pages.keys()))
- 
-    if selection != "Extras":
-            st.session_state.page_state["extra"] = False
+
             
     # Display the selected page
     pages[selection]()
@@ -177,24 +171,14 @@ def page_extras():
     st.write("-------------------------------------")
     st.subheader("Find your optimal volume:")
 
-    
-    if 'extra' in st.session_state:
-        if st.session_state.extra:
-            st.session_state.extra = False
-    else:
-        st.session_state.extra = False
-    
-    st.write(st.session_state)
 
-    # Check if we are on the Extra page
-    if st.session_state.page_state.get("extra", False):
-        bell_button_ph = st.empty()
-        reset_button_ph = st.empty()
+    bell_button_ph = st.empty()
+    reset_button_ph = st.empty()
 
-        bell = bell_button_ph.button('Bell')
-        if bell:
-            reset = reset_button_ph.button("Reset Bell (Click before testing volume again)")
-            autoplay_audio("schoolBell.mp3")
+    bell = bell_button_ph.button('Bell')
+    if bell:
+        reset = reset_button_ph.button("Reset Bell (Click before testing volume again)")
+        autoplay_audio("schoolBell.mp3")
 
             
         
