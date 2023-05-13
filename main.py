@@ -32,6 +32,8 @@ def main():
     
     if 'extra' in st.session_state:
         st.session_state.extra = True
+        bell_button_ph.empty()
+        reset_button_ph.empty()
         
     hide_menu_style = """
         <style>
