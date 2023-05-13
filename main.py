@@ -36,7 +36,7 @@ def page_extras():
         reset=reset_button_ph.button("Reset Bell (Click before testing volume again)")
         autoplay_audio("schoolBell.mp3")
         
-def main():
+def main(reset_button_ph, bell_button_ph):
     # Set up page
     st.set_page_config(
         page_title="Byram Bell",
