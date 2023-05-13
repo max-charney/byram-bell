@@ -173,6 +173,7 @@ def page_extras():
         i+=1
         st.write(i)
         st.empty()
+        john=st.button("john")
         autoplay_audio("schoolBell.mp3")
     if i>0:
         if bell:
