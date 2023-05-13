@@ -173,6 +173,8 @@ def page_extras():
     if 'extra' in st.session_state:
         if st.session_state.extra:
             st.session_state.extra = False
+    else:
+        st.session_state.extra = False
     
    #check if we are on the Extra page
     if st.session_state.extra == False:
