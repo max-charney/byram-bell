@@ -164,15 +164,17 @@ def page_extras():
     st.write("Check out the code in our github repository: https://github.com/max-charney/byram-bell")
 
     st.write("-------------------------------------")
-
-    st.subheader("Find your optimal volume:")
-    bell_button_ph = st.empty()
-    reset_button_ph = st.empty()
-    bell = bell_button_ph.button('Bell')
-    if bell:
-        reset=reset_button_ph.button("Reset Bell (Click before testing volume again)")
-        autoplay_audio("schoolBell.mp3")
-
+    def extra_buttons():
+        bell_button_ph = st.empty()
+        reset_button_ph = st.empty()
+        
+        st.subheader("Find your optimal volume:")
+      
+        bell = bell_button_ph.button('Bell')
+        if bell:
+            reset=reset_button_ph.button("Reset Bell (Click before testing volume again)")
+            autoplay_audio("schoolBell.mp3")
+    extra_buttons()
             
         
 
