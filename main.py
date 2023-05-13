@@ -29,7 +29,10 @@ def main():
         page_icon="bobcatlogo.png",
         initial_sidebar_state="expanded",
     )
-
+    
+    if 'extra'  in st.session_state:
+        st.session_state.extra = True
+        
     hide_menu_style = """
         <style>
         #MainMenu {visibility: hidden; position: absolute; top: 0;}
