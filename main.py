@@ -29,7 +29,8 @@ def main():
         page_icon="bobcatlogo.png",
         initial_sidebar_state="expanded",
     )
-    
+    bell_button_ph = st.empty()
+    reset_button_ph = st.empty()
     if 'extra' in st.session_state:
         st.session_state.extra = True
         bell_button_ph.empty()
