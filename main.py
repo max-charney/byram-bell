@@ -30,6 +30,11 @@ def main():
         page_icon="bobcatlogo.png",
         initial_sidebar_state="expanded",
     )
+    
+    #reset buttons from other pages
+    bell_button_ph.empty()
+    reset_button_ph.empty()
+    
 
     hide_menu_style = """
         <style>
@@ -167,9 +172,11 @@ def page_extras():
     st.write("-------------------------------------")
     
     st.subheader("Find your optimal volume:")
-    bell = st.button("Bell")
+    bell_button_ph = st.empty()
+    reset_button_ph = st.empty()
+    bell = bell_button_ph.button('Bell')
     if bell:
-        john=st.button("Reset Bell (Click before testing volume again)")
+        reset=reset_button_ph.button("Reset Bell (Click before testing volume again)")
         autoplay_audio("schoolBell.mp3")
             
         
