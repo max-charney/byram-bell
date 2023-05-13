@@ -21,8 +21,6 @@ def autoplay_audio(file_path: str):
             md,
             unsafe_allow_html=True,
         )
-
-
         
 def main():
     # Set up page
@@ -161,19 +159,19 @@ def page_bell_schedule():
     df.index += 1
     st.table(df)
 
-    def page_extras():
-        st.subheader("This website was developed by Mr. Lewick and Max Charney")
-        st.write("Check out the code in our github repository: https://github.com/max-charney/byram-bell")
+def page_extras():
+    st.subheader("This website was developed by Mr. Lewick and Max Charney")
+    st.write("Check out the code in our github repository: https://github.com/max-charney/byram-bell")
 
-        st.write("-------------------------------------")
+    st.write("-------------------------------------")
 
-        st.subheader("Find your optimal volume:")
-        bell_button_ph = st.empty()
-        reset_button_ph = st.empty()
-        bell = bell_button_ph.button('Bell')
-        if bell:
-            reset=reset_button_ph.button("Reset Bell (Click before testing volume again)")
-            autoplay_audio("schoolBell.mp3")
+    st.subheader("Find your optimal volume:")
+    bell_button_ph = st.empty()
+    reset_button_ph = st.empty()
+    bell = bell_button_ph.button('Bell')
+    if bell:
+        reset=reset_button_ph.button("Reset Bell (Click before testing volume again)")
+        autoplay_audio("schoolBell.mp3")
 
             
         
