@@ -164,6 +164,8 @@ def page_extras():
     st.write("Check out the code in our github repository: https://github.com/max-charney/byram-bell")
     st.write("-------------------------------------")
     st.subheader("Find your optimal volume:")
+    st.write(st.session_state)
+
     
     if 'extra' not in st.session_state:
         st.session_state.extra = False
