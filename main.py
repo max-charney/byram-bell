@@ -169,7 +169,7 @@ def page_extras():
     st.subheader("Find your optimal volume:")
     bell = st.button("Bell")
     if bell:
-        john=st.button("Reset Bell (Click before testing bell again)")
+        john=st.button("Reset Bell (Click before testing volume again)")
         autoplay_audio("schoolBell.mp3")
             
         
