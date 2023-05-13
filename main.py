@@ -70,7 +70,7 @@ def main():
     selection = st.sidebar.radio("Go to", list(pages.keys()))
 
     # Display the selected page
-    pages[selection]()
+    pages[selection](bell_button_ph, reset_button_ph)
 
 def page_home():  
     # Set up the page
