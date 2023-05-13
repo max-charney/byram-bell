@@ -72,7 +72,10 @@ def main():
     # Sidebar navigation
     st.sidebar.title("Navigation")
     selection = st.sidebar.radio("Go to", list(pages.keys()))
-
+ 
+    if selection != "Extras":
+            st.session_state.page_state["extra"] = False
+            
     # Display the selected page
     pages[selection]()
 
@@ -180,16 +183,16 @@ def page_extras():
     
     st.write(st.session_state)
 
-   #check if we are on the Extra page
-    if st.session_state.extra == False:
+    # Check if we are on the Extra page
+    if st.session_state.page_state.get("extra", False):
         bell_button_ph = st.empty()
         reset_button_ph = st.empty()
 
-
         bell = bell_button_ph.button('Bell')
         if bell:
-            reset=reset_button_ph.button("Reset Bell (Click before testing volume again)")
+            reset = reset_button_ph.button("Reset Bell (Click before testing volume again)")
             autoplay_audio("schoolBell.mp3")
+
             
         
 
