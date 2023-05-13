@@ -7,6 +7,9 @@ import pandas as pd
 import pytz
 import base64
 
+if "page_state" not in st.session_state:
+    st.session_state["page_state"] = {}
+st.session_state.page_state["extra"] = False
 
 def autoplay_audio(file_path: str):
     with open(file_path, "rb") as f:
