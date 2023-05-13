@@ -167,7 +167,6 @@ def page_extras():
     st.write("Check out the code in our github repository: https://github.com/max-charney/byram-bell")
     st.write("-------------------------------------")
     st.subheader("Find your optimal volume:")
-    st.write(st.session_state)
 
     
     if 'extra' in st.session_state:
@@ -176,6 +175,8 @@ def page_extras():
     else:
         st.session_state.extra = False
     
+    st.write(st.session_state)
+
    #check if we are on the Extra page
     if st.session_state.extra == False:
         bell_button_ph = st.empty()
