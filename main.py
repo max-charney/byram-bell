@@ -82,12 +82,9 @@ def page_home():
     button_clicked = False
 
     if st.button('Play Bell', key='play_button'):
-        button_clicked = True
         autoplay_audio("schoolBell.mp3")
+        rerun = st.button("rerun")
 
-    if button_clicked:
-        time.sleep(5) # Wait 5 seconds to allow audio to finish playing
-        st.experimental_rerun()
         
         
     st.write("-------------------------------------")
