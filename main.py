@@ -178,8 +178,10 @@ def extras_page():
     
     bell = bell_button_ph.button('Bell')
     if bell:
-        reset = reset_button_ph.button("Reset Bell (Click before testing volume again)")
         autoplay_audio("schoolBell.mp3")
+        reset = reset_button_ph.button("Reset Bell (Click before testing volume again)")
+        time.sleep(5)
+        st.experimental_rerun()
         if 'extra' not in st.session_state:
             st.session_state.extra = False  
 
