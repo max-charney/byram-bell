@@ -28,12 +28,6 @@ def main():
         page_icon="bobcatlogo.png",
         initial_sidebar_state="expanded",
     )
-    bell_button_ph = st.empty()
-    reset_button_ph = st.empty()
-    if 'extra' in st.session_state:
-        st.session_state.extra = True
-        bell_button_ph.empty()
-        reset_button_ph.empty()
         
     hide_menu_style = """
         <style>
@@ -82,19 +76,20 @@ def page_home():
     timer_ph = st.empty()
     next_bell_container = st.empty()
     
-    bell_button_ph = st.empty()
-    reset_button_ph = st.empty()
+
 
     st.write("-------------------------------------")
     st.subheader("Find your optimal volume:")
     
+    bell_button_ph = st.empty()
+    reset_button_ph = st.empty()
     bell = bell_button_ph.button('Bell')
     if bell:
         reset = reset_button_ph.button("Reset Bell (Click before testing volume again)")
         autoplay_audio("schoolBell.mp3")
         
     st.write("-------------------------------------")
-    st.subheader("This website was developed by Mr. Lewick and Max Charney")
+    st.write("This website was developed by Mr. Lewick and Max Charney")
     st.write("Check out the code in our github repository: https://github.com/max-charney/byram-bell")
         
     # Set the timezone to Eastern Standard Time
