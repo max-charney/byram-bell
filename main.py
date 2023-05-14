@@ -179,7 +179,10 @@ def page_bell_schedule():
 def test():
     def play():
         autoplay_audio("schoolBell.mp3")
-    bell=st.button("bell", on_click=play)
+    bell=st.button("bell")
+    if bell:
+        play()
+        bell.empty()
         
         
 if __name__ == "__main__":
