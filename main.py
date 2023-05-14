@@ -29,8 +29,7 @@ def main():
         initial_sidebar_state="expanded",
     )
     
-    if 'extra' in st.session_state:
-    	st.experimental_rerun()
+    st.experimental_rerun()
     
     hide_menu_style = """
         <style>
@@ -176,14 +175,12 @@ def extras_page():
     bell_button_ph = st.empty()
     reset_button_ph = st.empty()
     
-    bell = bell_button_ph.button('Bell')
+    bell = bell_button_ph.button('Play Bell')
     if bell:
         autoplay_audio("schoolBell.mp3")
-        reset = reset_button_ph.button("Reset Bell (Click before testing volume again)")
+        reset = reset_button_ph.button("Stop Bell")
         time.sleep(5)
         st.experimental_rerun()
-        if 'extra' not in st.session_state:
-            st.session_state.extra = False  
 
         
 
