@@ -29,8 +29,8 @@ def main():
         initial_sidebar_state="expanded",
     )
     
-    if 'extra' not in st.session_state:
-	    st.experimental_rerun()
+    if 'extra' in st.session_state:
+    	st.experimental_rerun()
     
     hide_menu_style = """
         <style>
