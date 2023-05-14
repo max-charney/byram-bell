@@ -141,7 +141,7 @@ def page_home():
 
             # Wait for 1
             time.sleep(1)
-            st.subheader("This website was developed by Mr. Lewick and Max Charney")
+    st.subheader("This website was developed by Mr. Lewick and Max Charney")
     st.write("Check out the code in our github repository: https://github.com/max-charney/byram-bell")
     st.write("-------------------------------------")
     st.subheader("Find your optimal volume:")
