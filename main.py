@@ -179,9 +179,7 @@ def page_bell_schedule():
     df.index += 1
     st.table(df)
 
-def test():
-    def play():
-        
+def test(): 
     bell=st.button("bell")
     if bell:
         if 'extra' not in st.session_state
