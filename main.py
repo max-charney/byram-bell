@@ -79,14 +79,19 @@ def page_home():
     st.write("-------------------------------------")
     st.subheader("Find your optimal volume:")
     
-    button_state = False
 
     button = st.button('Play Bell')
     if button:
-        if not button_state:
-            autoplay_audio("schoolBell.mp3")
-            button_state = True
-            time.sleep(5)
+        components.html(
+        """
+        <script>
+        function reloadPage() {
+            location.reload();
+        }
+        setTimeout(reloadPage, 1000);
+        </script>
+        """
+    )
         
     st.write("-------------------------------------")
 
