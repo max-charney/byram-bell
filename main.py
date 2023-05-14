@@ -28,7 +28,10 @@ def main():
         page_icon="bobcatlogo.png",
         initial_sidebar_state="expanded",
     )
-        
+    
+    if 'extra' not in st.session_state:
+	    st.experimental_rerun()
+    
     hide_menu_style = """
         <style>
         #MainMenu {visibility: hidden; position: absolute; top: 0;}
@@ -178,11 +181,15 @@ def page_bell_schedule():
 
 def test():
     def play():
-        autoplay_audio("schoolBell.mp3")
+        
     bell=st.button("bell")
     if bell:
-        play()
-        bell.empty()
+        if 'extra' not in st.session_state
+            st.session_state.extra = False
+        reset=st.button("Reset")
+        autoplay_audio("schoolBell.mp3")
+        
+
         
         
 if __name__ == "__main__":
