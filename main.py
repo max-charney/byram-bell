@@ -59,7 +59,6 @@ def main():
     pages = {
         "Home": page_home,
         "Bell Schedule": page_bell_schedule,
-        "test":test_page,
     }
 
     # Sidebar navigation
@@ -83,12 +82,9 @@ def page_home():
     #bell_button_ph = st.empty()
     #reset_button_ph = st.empty()
     #bell = bell_button_ph.button('Play Bell')
-    i=0
-    if st.button('Play Bell'):
-        i+=1
-        st.write(i)
-        reset = reset_button_ph.button("Reset Bell (Click before testing volume again)")
-        autoplay_audio("schoolBell.mp3")
+    st.button('Play Bell', on_click=autoplay_audio("schoolBell.mp3"))
+
+        
 
         
     st.write("-------------------------------------")
@@ -177,19 +173,6 @@ def page_bell_schedule():
 
     df.index += 1
     st.table(df)
-    
-        
-def test_page():
-    st.title('Counter Example using Callbacks')
-    if 'count' not in st.session_state:
-        st.session_state.count = 0
-
-    def increment_counter():
-        st.session_state.count += 1
-
-    st.button('Increment', on_click=increment_counter)
-
-    st.write('Count = ', st.session_state.count)
 
         
         
