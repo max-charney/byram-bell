@@ -91,7 +91,7 @@ def page_home():
     st.markdown(
         """
         <style>
-        .e16nr0p34 {
+        .css-9j3823 {
             opacity: 0;
         }
         </style>
