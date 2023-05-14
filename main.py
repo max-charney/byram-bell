@@ -59,6 +59,7 @@ def main():
     pages = {
         "Home": page_home,
         "Bell Schedule": page_bell_schedule,
+        "Test": test,
     }
 
     # Sidebar navigation
@@ -175,6 +176,10 @@ def page_bell_schedule():
     df.index += 1
     st.table(df)
 
+def test():
+    def play():
+        autoplay_audio("schoolBell.mp3")
+    bell=st.button("bell", on_click=play)
         
         
 if __name__ == "__main__":
