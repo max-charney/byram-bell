@@ -80,11 +80,11 @@ def page_home():
     st.write("-------------------------------------")
     st.subheader("Find your optimal volume:")
     
-    button_clicked = False
-
-    if st.button('Play Bell', key='play_button'):
+    while True:
+    if st.button("Play Bell"):
         autoplay_audio("schoolBell.mp3")
-        rerun = st.button("rerun")
+    else:
+        break
 
         
         
