@@ -84,16 +84,14 @@ def page_home():
     #bell = bell_button_ph.button('Play Bell')
     def play():
         autoplay_audio("schoolBell.mp3")
-    button = st.button('Play Bell', on_click=play)
-
-        
-
+    button = st.button('Play Bell')
+    if button:
+        play()
         
     st.write("-------------------------------------")
-    developed_by_ph = st.empty()
-    github_ph = st.empty()
-    developed_by_ph.text("This website was developed by Mr. Lewick and Max Charney")
-    github_ph.text("Check out the code in our github repository: https://github.com/max-charney/byram-bell")
+
+    st.write("This website was developed by Mr. Lewick and Max Charney")
+    st.write("Check out the code in our github repository: https://github.com/max-charney/byram-bell")
         
     # Set the timezone to Eastern Standard Time
     eastern = pytz.timezone('US/Eastern')
