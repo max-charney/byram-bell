@@ -90,8 +90,8 @@ def page_home():
 
         
     st.write("-------------------------------------")
-    developed_by_ph = st.empty
-    github_ph = st.empty
+    developed_by_ph = st.empty()
+    github_ph = st.empty()
     developed_by_ph.text("This website was developed by Mr. Lewick and Max Charney")
     github_ph.text("Check out the code in our github repository: https://github.com/max-charney/byram-bell")
         
