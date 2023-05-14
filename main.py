@@ -89,8 +89,6 @@ def page_home():
         unsafe_allow_html=True
     )
 
-    # Add an element with the "element" class
-    st.markdown('<div class="element">This element has opacity 0</div>', unsafe_allow_html=True)
         
     # Set the timezone to Eastern Standard Time
     eastern = pytz.timezone('US/Eastern')
