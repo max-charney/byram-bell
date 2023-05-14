@@ -78,8 +78,6 @@ def page_home():
     timer_ph = st.empty()
     next_bell_container = st.empty()
     
-    st.experimental_rerun()
-
         
     # Set the timezone to Eastern Standard Time
     eastern = pytz.timezone('US/Eastern')
