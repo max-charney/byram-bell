@@ -79,11 +79,11 @@ def page_home():
     st.write("-------------------------------------")
     st.subheader("Find your optimal volume:")
     
-    bell_button_ph = st.empty()
-    reset_button_ph = st.empty()
-    bell = bell_button_ph.button('Play Bell')
+    #bell_button_ph = st.empty()
+    #reset_button_ph = st.empty()
+    #bell = bell_button_ph.button('Play Bell')
     i=0
-    if bell:
+    if st.button('Play Bell'):
         i+=1
         st.write(i)
         reset = reset_button_ph.button("Reset Bell (Click before testing volume again)")
