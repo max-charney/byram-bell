@@ -62,7 +62,7 @@ def main():
     pages = {
         "Home": page_home,
         "Bell Schedule": page_bell_schedule,
-        "Test": test,
+        "Extra": extras_page,
     }
 
     # Sidebar navigation
@@ -180,12 +180,17 @@ def page_bell_schedule():
     st.table(df)
 
 def test(): 
-    bell=st.button("bell")
+    
+    bell_button_ph = st.empty()
+    reset_button_ph = st.empty()
+    
+    bell = bell_button_ph.button('Bell')
     if bell:
-        if 'extra' not in st.session_state:
-            st.session_state.extra = False
-        reset=st.button("Reset")
+        reset = reset_button_ph.button("Reset Bell (Click before testing volume again)")
         autoplay_audio("schoolBell.mp3")
+        if 'extra' not in st.session_state:
+            st.session_state.extra = False  
+
         
 
         
