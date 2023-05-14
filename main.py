@@ -29,7 +29,6 @@ def main():
         initial_sidebar_state="expanded",
     )
     
-    st.experimental_rerun()
     
     hide_menu_style = """
         <style>
@@ -79,6 +78,7 @@ def page_home():
     timer_ph = st.empty()
     next_bell_container = st.empty()
     
+    st.experimental_rerun()
 
         
     # Set the timezone to Eastern Standard Time
