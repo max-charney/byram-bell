@@ -82,7 +82,8 @@ def page_home():
     #bell_button_ph = st.empty()
     #reset_button_ph = st.empty()
     #bell = bell_button_ph.button('Play Bell')
-    st.button('Play Bell', on_click=autoplay_audio("schoolBell.mp3"))
+    
+    button = st.button('Play Bell', on_click=autoplay_audio("schoolBell.mp3"))
 
         
 
