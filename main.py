@@ -76,19 +76,19 @@ def page_home():
     timer_ph = st.empty()
     next_bell_container = st.empty()
     
-
-
     st.write("-------------------------------------")
     st.subheader("Find your optimal volume:")
     
     bell_button_ph = st.empty()
     reset_button_ph = st.empty()
     bell = bell_button_ph.button('Play Bell')
+    i=0
     if bell:
+        i+=1
+        st.write(i)
         reset = reset_button_ph.button("Reset Bell (Click before testing volume again)")
         autoplay_audio("schoolBell.mp3")
-    if reset:
-        st.write('hi')
+
         
     st.write("-------------------------------------")
     st.write("This website was developed by Mr. Lewick and Max Charney")
