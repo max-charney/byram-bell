@@ -77,7 +77,25 @@ def page_home():
     st.subheader("This website plays the bell sound at the scheduled times, so don't forget to adjust your volume accordingly!")
     timer_ph = st.empty()
     next_bell_container = st.empty()
-   
+    df = pd.DataFrame(
+    data=(
+        ("7:45 AM"),
+        ("8:10 AM"), 
+        ("9:14 AM"), 
+        ("9:18 AM"), 
+        ("10:22 AM"), 
+        ("10:26 AM"), 
+        ("11:30 AM"), 
+        ("12:13 AM"), 
+        ("1:17 PM"), 
+        ("1:21 PM"), 
+        ("2:25 PM")
+        ),
+        columns=["Bell Times"],
+    )
+
+    df.index += 1
+    st.table(df)
         
     # Set the timezone to Eastern Standard Time
     eastern = pytz.timezone('US/Eastern')
