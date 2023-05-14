@@ -59,6 +59,7 @@ def main():
     pages = {
         "Home": page_home,
         "Bell Schedule": page_bell_schedule,
+        "test":test_page,
     }
 
     # Sidebar navigation
@@ -155,13 +156,6 @@ def page_home():
 
             # Wait for 1
             time.sleep(1)
-
-
-
-
-
-
- 
             
 def page_bell_schedule():
     df = pd.DataFrame(
@@ -184,6 +178,14 @@ def page_bell_schedule():
     df.index += 1
     st.table(df)
     
+        
+def test_page():
+    a=0
+    if st.button("Click me"):
+        a += 1
+        st.write(a)
+
+        
         
 if __name__ == "__main__":
     main()
