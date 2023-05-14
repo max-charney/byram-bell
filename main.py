@@ -88,7 +88,7 @@ def page_home():
     if button_clicked:
         time.sleep(5) # Wait 5 seconds to allow audio to finish playing
         st.experimental_rerun()
-        )
+        
         
     st.write("-------------------------------------")
 
