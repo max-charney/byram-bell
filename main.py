@@ -179,7 +179,7 @@ def page_bell_schedule():
     df.index += 1
     st.table(df)
 
-def test(): 
+def extras_page(): 
     
     bell_button_ph = st.empty()
     reset_button_ph = st.empty()
