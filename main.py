@@ -84,15 +84,19 @@ def page_home():
     
     bell_button_ph = st.empty()
     reset_button_ph = st.empty()
+
+    st.write("-------------------------------------")
+    st.subheader("Find your optimal volume:")
+    
     bell = bell_button_ph.button('Bell')
     if bell:
         reset = reset_button_ph.button("Reset Bell (Click before testing volume again)")
         autoplay_audio("schoolBell.mp3")
+        
+    st.write("-------------------------------------")
     st.subheader("This website was developed by Mr. Lewick and Max Charney")
     st.write("Check out the code in our github repository: https://github.com/max-charney/byram-bell")
-    st.write("-------------------------------------")
-    st.subheader("Find your optimal volume:")
-    
+        
     # Set the timezone to Eastern Standard Time
     eastern = pytz.timezone('US/Eastern')
 
