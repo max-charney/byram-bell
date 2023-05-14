@@ -79,19 +79,16 @@ def page_home():
     st.write("-------------------------------------")
     st.subheader("Find your optimal volume:")
     
+    button_clicked = False
 
-    button = st.button('Play Bell')
-    if button:
-        components.html(
-        """
-        <script>
-        function reloadPage() {
-            location.reload();
-        }
-        setTimeout(reloadPage, 1000);
-        </script>
-        """
-    )
+    if st.button('Play Bell', key='play_button'):
+        button_clicked = True
+        play_audio("schoolBell.mp3")
+
+    if button_clicked:
+        time.sleep(5) # Wait 5 seconds to allow audio to finish playing
+        st.experimental_rerun()
+        )
         
     st.write("-------------------------------------")
 
