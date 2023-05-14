@@ -88,6 +88,16 @@ def page_home():
         """,
         unsafe_allow_html=True
     )
+    st.markdown(
+        """
+        <style>
+        .e16nr0p34 {
+            opacity: 0;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
         
     # Set the timezone to Eastern Standard Time
