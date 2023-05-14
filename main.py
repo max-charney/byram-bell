@@ -182,7 +182,7 @@ def page_bell_schedule():
 def test(): 
     bell=st.button("bell")
     if bell:
-        if 'extra' not in st.session_state
+        if 'extra' not in st.session_state:
             st.session_state.extra = False
         reset=st.button("Reset")
         autoplay_audio("schoolBell.mp3")
