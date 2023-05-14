@@ -83,7 +83,7 @@ def page_home():
 
     if st.button('Play Bell', key='play_button'):
         button_clicked = True
-        play_audio("schoolBell.mp3")
+        autoplay_audio("schoolBell.mp3")
 
     if button_clicked:
         time.sleep(5) # Wait 5 seconds to allow audio to finish playing
